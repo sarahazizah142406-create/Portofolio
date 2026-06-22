@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+
+:root {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #060913; /* Even darker, deeper space black */
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* Cyber grid background */
+.cyber-grid {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.08) 1px, transparent 0),
+    linear-gradient(rgba(99, 102, 241, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+  background-position: center;
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: rgba(10, 15, 30, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  transform: translateY(-6px);
+  background: rgba(10, 15, 30, 0.85);
+  border-color: rgba(99, 102, 241, 0.35); /* Glow border */
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(99, 102, 241, 0.15); /* Tech glow */
+}
+
+/* Ambient Blobs */
+@keyframes blob-pivot {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(40px, -60px) scale(1.2);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.85);
+  }
+}
+
+.glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: blob-pivot 18s infinite alternate ease-in-out;
+}
+
+.glow-blob-delay-1 {
+  animation-delay: 4s;
+}
+
+.glow-blob-delay-2 {
+  animation-delay: 8s;
+}
+
+/* Animated Gradient Borders & Buttons */
+.gradient-border-btn {
+  position: relative;
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+  padding: 1.5px;
+  border-radius: 9999px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+}
+
+.gradient-border-btn-inner {
+  background: #060913;
+  border-radius: 9999px;
+  transition: background 0.3s ease;
+}
+
+.gradient-border-btn:hover {
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+  transform: translateY(-2px);
+}
+
+.gradient-border-btn:hover .gradient-border-btn-inner {
+  background: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060913;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.45);
+}
+
+/* Text Selection */
+::selection {
+  background: rgba(168, 85, 247, 0.35);
+  color: #ffffff;
+}
+
+/* Active Nav Links styling */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  transition: width 0.3s ease;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Micro animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: float 5s infinite ease-in-out;
+}
+
+/* Tech decor elements */
+.tech-corner-br {
+  position: relative;
+}
+.tech-corner-br::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid rgba(99, 102, 241, 0.5);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.5);
+  pointer-events: none;
+}
+
+.tech-corner-tl {
+  position: relative;
+}
+.tech-corner-tl::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-left: 2px solid rgba(99, 102, 241, 0.5);
+  border-top: 2px solid rgba(99, 102, 241, 0.5);
+  pointer-events: none;
+}
+
